@@ -8,9 +8,10 @@ Decompose environment for running Gitolite
 ## How to use
 
 0. Install decompose
-1. Copy your public ssh key to `admin.pub` so you can admin gitolite.
-2. `decompose build && decompose up`
-3. Access gitolite using `git clone ssh://git@localhost:10022/gitolite-admin` or `ssh -p 10022 git@localhost:10022`
+1. `decompose --init https://github.com/dmp1ce/decompose-gitolite.git`
+2. Copy your public ssh key to `admin.pub` so you can admin gitolite. For example: `cat ~/.ssh/id_rsa.pub > admin.pub`
+3. `decompose build && decompose up`
+4. Access gitolite using `git clone ssh://git@localhost:10022/gitolite-admin` or `ssh -p 10022 git@localhost:10022`
 
 # SSH Port
 
