@@ -1,0 +1,2 @@
+# Allow project elements file to override all elements
+source $(_decompose-project-root)/elements
