@@ -1,2 +1,20 @@
+source $(_decompose-project-root)/.decompose/environment/lib/common/elements
+source $(_decompose-project-root)/.decompose/environment/lib/backup/elements
+
+PROJECT_DOCKER_LOG_DRIVER="journald"
+
+# Backup config
+PROJECT_BACKUP_CONFIG_NAME='gitolite'
+PROJECT_BACKUP_INCLUDES=""
+PROJECT_BACKUP_EXCLUDES=( '.gitmodules' 'backup_config' 'config_backup' )
+PROJECT_BACKUP_SOURCE="/"
+PROJECT_BACKUP_TARGET="file:///root/backup"
+
+# Disable encryption by default just so
+# backups will work without setting up encryption keys
+PROJECT_BACKUP_GPG_KEY="disabled"
+
 # Allow project elements file to override all elements
 source $(_decompose-project-root)/elements
+
+# vim:syntax=sh

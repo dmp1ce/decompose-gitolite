@@ -1,4 +1,8 @@
-DECOMPOSE_PROCESSES+=( "build" "up" "print-elements" )
+source $(_decompose-project-root)/.decompose/environment/lib/common/processes
+source $(_decompose-project-root)/.decompose/environment/lib/backup/processes
+DECOMPOSE_PROCESSES+=( "${DECOMPOSE_COMMON_PROCESSES[@]}"
+  "${DECOMPOSE_BACKUP_PROCESSES[@]}"
+  "build" "up" "print-gitolite-elements" )
 
 _decompose-process-build() {
   if [ ! -f $(_decompose-project-root)/admin.pub ]; then
@@ -9,6 +13,7 @@ _decompose-process-build() {
   echo "Starting build ..."
   decompose --build
   docker-compose pull
+  docker-compose build
 }
 _decompose-process-build_help() {
   echo "  Build process for gitolite"
@@ -20,14 +25,15 @@ _decompose-process-up() {
 _decompose-process-up_help() {
   echo "  Start gitolite"
 }
-_decompose-process-print-elements() {
+
+_decompose-process-print-gitolite-elements() {
   echo "PROJECT_PRODUCTION: $PROJECT_PRODUCTION"
   echo "PROJECT_NAMESPACE: $PROJECT_NAMESPACE"
   echo "PROJECT_SSH_PORT: $PROJECT_SSH_PORT"
   echo "PROJECT_SSH_KEY_NAME: $PROJECT_SSH_KEY_NAME"
   echo "PROJECT_GITOLITE_ADMIN_SSH_KEY: $PROJECT_GITOLITE_ADMIN_SSH_KEY"
 }
-_decompose-process-print-elements_help() {
+_decompose-process-print-gitolite-elements_help() {
   echo "  Prints the elements used."
 }
 

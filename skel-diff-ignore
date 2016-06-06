@@ -1,0 +1,11 @@
+.decompose/elements
+.decompose/environment
+admin.pub
+docker-compose.yml
+.git
+.gitmodules
+config_backup
+containers/backup/Dockerfile
+containers/backup/backup_service
+containers/backup/.duply/site_data/pre
+containers/backup/.duply/site_data/conf
