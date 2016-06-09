@@ -9,6 +9,8 @@ PROJECT_BACKUP_INCLUDES=""
 PROJECT_BACKUP_EXCLUDES=( '.gitmodules' 'backup_config' 'config_backup' )
 PROJECT_BACKUP_SOURCE="/"
 PROJECT_BACKUP_TARGET="file:///root/backup"
+PROJECT_BACKUP_USER="root"
+PROJECT_BACKUP_USER_HOME="/root"
 
 # Disable encryption by default just so
 # backups will work without setting up encryption keys
